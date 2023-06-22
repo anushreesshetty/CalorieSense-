@@ -1,0 +1,78 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>My Flask App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Calories burned predictor</h1>
+    <form action="{{ url_for('predict')}}"method="post">
+        <label name="number1" position="center">1</label>
+        <label>Gender </label>
+        <input type="number" name="gender" placeholder="Male(0) Female(1)" required="required" />
+        <label name="number1" position="center">2</label>
+        <label>How old are you?</label>
+        <input type="number" name="age" placeholder="Age" required="required" />
+        <label name="number1" position="center">3</label>
+        <label>How tall are you?</label>
+          <input type="number" name="height" placeholder="height" required="required" /><br>
+          <label name="number1" position="center">4</label>
+          <label>How much do you weigh?</label>          
+          <input type="number" name="weight" placeholder="Weight" required="required" /><br>
+          <label name="number1" position="center">5</label>
+        <label>How often you workout?</label>
+          <input type="number" name="duration" placeholder="Duration" required="required" /><br>
+          <label name="number1" position="center">6</label>
+        <label>What is your heart rate??</label>
+          <input type="number" name="heartrate" placeholder="Heartrate" required="required" /><br>
+          <label name="number1" position="center">7</label>
+          <label>What is your body Temperature?</label>
+          <input type="number" name="bodytemperature" placeholder="Bodytemperature" required="required" /><br>
+          
+  
+         
+          <!-- <input type="submit" value="Predict"> -->
+          <button type="submit" class="btn btn-black btn-block btn-large">Predict</button>
+      </form>
+   
+</div>
+{{prediction_text}}
+</body>
+</html>
+
+
+
+
+
+
+
+ <!-- <foheartrate action="{{ url_for('predict') }}" method="post">
+        <label for="gender">Gender:</label>
+        <!-- <select name="number" id="gender"> -->
+            <!-- <option value="male">Male</option> -->
+            <!-- <option value="female">Female</option> -->
+            <!-- <input type="number" name="gender" id="gender">
+        
+        <label for="age">Age:</label>
+        <input type="number" name="age" id="age">
+        
+        <label for="height">Height (in cm):</label>
+        <input type="number" name="height" id="height">
+        
+        <label for="weight">Weight (in kg):</label>
+        <input type="number" name="weight" id="weight">
+        
+        <label for="duration">Duration (in min):</label>
+        <input type="number" name="duration" id="duration">
+        
+        <label for="heart_rate">Heart Rate:</label>
+        <input type="number" name="heart_rate" id="heart_rate">
+        
+        <label for="body_temp">Body Temperature:</label>
+        <input type="number" name="body_temp" id="body_temp">
+        
+        <input type="submit" value="Predict">
+    </foheartrate> --> -->
