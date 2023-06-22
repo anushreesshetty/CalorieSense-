@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Document</title>
+    <style>
+        
+.autocomplete-list>div:first-of-type {
+    margin-top: 8px;
+}
+.autocomplete-list .autocomplete-suggestion {
+    padding: 8px 0 8px 10px;
+}
+*, :after, :before {
+    box-sizing: border-box;
+}
+*, :after, :before {
+    box-sizing: inherit;
+}
+user agent stylesheet
+div {
+    display: block;
+}
+ body {
+    font-family: Rubik latin,Rubik latin-ext,Rubik cryllic,Noto Sans JP,Noto Sans SC,Noto Sans KR,Noto Sans EL,Helvetica,Arial,sans-serif;
+    font-weight: 400;
+    color: #37474f;
+}
+
+body {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+    background-color: #fff;
+}
+
+
+ root {
+    --cc-bg: #fff;
+    --cc-text: #2d4156;
+    --cc-btn-primary-bg: #2d4156;
+    --cc-btn-primary-text: var(--cc-bg);
+    --cc-btn-primary-hover-bg: #1d2e38;
+    --cc-btn-secondary-bg: #eaeff2;
+    --cc-btn-secondary-text: var(--cc-text);
+    --cc-btn-secondary-hover-bg: #d8e0e6;
+    --cc-toggle-bg-off: rgba(0,0,0,0.7);
+    --cc-toggle-bg-on: rgba(3,169,244,0.38);
+    --cc-toggle-bg-readonly: #e6f7ff;
+    --cc-toggle-knob-bg: #03a9f4;
+    --cc-toggle-knob-icon-color: #ecf2fa;
+    --cc-block-text: var(--cc-text);
+    --cc-cookie-category-block-bg: #f0f4f7;
+    --cc-cookie-category-block-bg-hover: #e9eff4;
+    --cc-section-border: #f1f3f5;
+    --cc-cookie-table-border: #e9edf2;
+    --cc-overlay-bg: rgba(4,6,8,0.85);
+    --cc-webkit-scrollbar-bg: #cfd5db;
+    --cc-webkit-scrollbar-bg-hover: #9199a0;
+}
+
+html {
+    font-family: sans-serif;
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+ *, :after, :before {
+    box-sizing: border-box;
+}
+
+*, :after, :before {
+    box-sizing: inherit;
+}
+
+*, :after, :before {
+    box-sizing: border-box;
+}
+
+*, :after, :before {
+    box-sizing: inherit;
+}
+    </style>
+</head>
+<body>
+    <div class="row mt-0 mt-md-32" id="calories-burned-calculator" data-pal="0">
+        <div class="col-12">
+        <div class="calculator-step" id="calculator-step-1">
+        <hr class="d-block d-md-none">
+        <div class="line-dot">
+        <div class="dot">1</div>
+        </div>
+        <h2 class="mb-0 mb-md-32">Enter an exercise to calculate your calories burned</h2>
+        <div class="mt-16">
+        <div class="search-box centered" id="sports-input-group">
+        <img src="https://assets.yazio.com/frontend/images/icons.svg#icon-search" class="icon-svg search-icon" alt="Search for exercise or activity" type="image/svg+xml">
+        <input type="text" class="input font-highlight js-input-field invalid-highlight" id="search-sport-form" name="searchSportInput" required="required" tabindex="0" placeholder="Search for exercise or activity" data-autocomplete-item-description="Burns %1$s cal per hour" autocomplete="off">
+       
+        <div class="col-12 col-md-6 col-lg-6 mt-md-32">
+        <div class="calculator-step" id="calculator-step-2">
+        <hr class="d-block d-md-none">
+        <div class="line-dot">
+        <div class="dot">2</div>
+        </div>
+        <h2 class="mb-0 mb-md-32">Activity duration</h2>
+        <div class="mt-16">
+        <div class="input-label-wrapper">
+        <div class="mt16-32">
+        <input type="tel" class="input dual-number js-input-field invalid-highlight js-max-length" placeholder="30" maxlength="3" id="calculator-step-duration" tabindex="0" name="calculator-step-duration" pattern="[0-9]*" value="" inputmode="tel">
+        <label for="calculator-step-duration" class="label">min</label>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-6 mt-md-32">
+        <div class="calculator-step" id="calculator-step-3">
+        <hr class="d-block d-md-none">
+        <div class="line-dot">
+        <div class="dot">3</div>
+        </div>
+        <h2 class="mb-0 mb-md-32">What is your sex?</h2>
+        <div class="mt-16">
+        <div class="icn-btn-wrapper" id="gender-icn-btn-wrapper">
+        <div id="calculator-gender-male-input" class="img-btn-container no-hover js-input-field focused" tabindex="1" data-abbreviation="m" data-value="5">
+        <img class="icon-svg" src="https://assets.yazio.com/frontend/images/icons.svg#icon-male" alt="Male" type="image/svg+xml">
+         <div class="choice-btn yz-btn grey font-subtitle">Male</div>
+        </div>
+        <div id="calculator-gender-female-input" class="img-btn-container no-hover js-input-field ml-32 ml-md-16 ml-lg-32 focused" tabindex="2" data-abbreviation="f" data-value="-161">
+        <img class="icon-svg" src="https://assets.yazio.com/frontend/images/icons.svg#icon-female" alt="Female" type="image/svg+xml">
+        <div class="choice-btn yz-btn grey font-subtitle">Female</div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-6 mt-md-32">
+        <div class="calculator-step" id="calculator-step-4">
+        <hr class="d-block d-md-none">
+        <div class="line-dot">
+        <div class="dot">4</div>
+        </div>
+        <h2 class="mb-0 mb-md-32">How old are you?</h2>
+        <div class="mt-16">
+        <div class="input-label-wrapper">
+        <div class="mt16-32">
+        <input type="tel" class="input dual-number js-input-field invalid-highlight js-max-length" data-decimals="false" placeholder="21" maxlength="3" id="calculator-step-age" name="calculator-step-age" pattern="[0-9]*" value="" tabindex="0" inputmode="tel">
+        <label for="calculator-step-age" class="label invalid-highlight">Years</label>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-6 mt-md-32">
+        <div class="calculator-step" id="calculator-step-5">
+        <hr class="d-block d-md-none">
+        <div class="line-dot">
+        <div class="dot">5</div>
+        </div>
+        <h2 class="mb-0 mb-md-32">How much do you weigh?</h2>
+        <div class="mt-16">
+        <div class="d-flex flex-column">
+        <div class="c-toggle d-inline-block order-0 order-md-1">
+        <input type="radio" class="radio-button calculator-step-weight-choice" id="calculator-step-weight-unit-kg" name="weight[metric]" data-factor="1" data-placeholder="69" required="" value="kg" pattern="[0-9]*">
+        <label for="calculator-step-weight-unit-kg">
+        <span>kg</span>
+        </label>
+        <input type="radio" class="radio-button calculator-step-weight-choice" id="calculator-step-weight-unit-lb" checked="" name="weight[metric]" data-factor="2.2046" data-placeholder="152" required="" value="lb" pattern="[0-9]*">
+        <label for="calculator-step-weight-unit-lb">
+        <span>lb</span>
+        </label>
+        </div>
+        <div class="input-label-wrapper order-1 order-md-0">
+        <div class="kg-input-wrapper hidden">
+        <input type="tel" id="calculator-step-weight-input-kg" name="weight" class="d-inline-block centered js-input-field input form-control invalid-highlight js-max-length" placeholder="69" maxlength="5" data-decimals="true" required="" pattern="[0-9]*" value="" tabindex="0" inputmode="tel">
+        <label class="label invalid-highlight" for="calculator-step-weight-input-kg">
+        <span>kg</span>
+        </label>
+        </div>
+        <div class="lbs-input-wrapper">
+        <input type="tel" id="calculator-step-weight-input-lbs" name="weight" class="d-inline-block centered js-input-field input form-control invalid-highlight js-max-length" placeholder="152" maxlength="6" data-decimals="true" required="" pattern="[0-9]*" value="" tabindex="0" inputmode="tel">
+        <label class="label invalid-highlight" for="calculator-step-weight-input-lbs">
+        <span>lbs</span>
+        </label>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        <div class="col-12 form-error-wrapper centered hidden">
+        <div class="yz-alert yz-alert-danger">
+        <img src="https://assets.yazio.com/frontend/images/icons.svg#icon-danger" class="icon-svg alert-icon" role="presentation" type="image/svg+xml">
+        <p class="alert-text">
+        <strong>Oops</strong>, something went wrong! Please correct the marked fields.
+        </p>
+        </div>
+        </div>
+        <div class="col-12">
+        <button class="yz-btn pink js-submit-button calc-submit" data-delimiter-thousand="," data-delimiter-decimal=".">Calculate your calories burned</button>
+        </div>
+        </div>
+    
+</body>
+</html>

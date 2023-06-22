@@ -1,0 +1,90 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>My Flask App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Hello, world!hehehe</h1>
+    <form action="{{ url_for('predict')}}"method="post">
+        <input type="number" name="gender" placeholder="gender" required="required" /><br>
+        
+          <input type="number" name="age" placeholder="age" required="required" /><br>
+          <!-- <input type="number" name="height" placeholder="height" required="required" /><br> -->
+          <div class="mt-16">
+            <div class="d-flex flex-column">
+                <div class="c-toggle d-inline-block order-0 order-md-1">
+                    <input type="radio" class="radio-button calculator-step-height-choice" id="calculator-step-height-unit-cm" data-factor="100.0" data-unit="cm" name="height[metric]" required="required" value="cm" pattern="[0-9]*">
+                    <label class="" for="calculator-step-height-unit-cm">cm</label>
+                    <input type="radio" class="radio-button calculator-step-height-choice" id="calculator-step-height-unit-ft" checked data-factor="3.2808" data-unit="ft / in" name="height[metric]" required="required" value="ft" pattern="[0-9]*">
+                    <label class="" for="calculator-step-height-unit-ft">ft/in</label>
+                </div>
+                <div class="input-label-wrapper order-1 order-md-0 ">
+                    <div id="calculator-step-height-cm-input-wrapper">
+                        <input type="tel" id="calculator-step-height-cm" name="height[cm]" class="centered js-input-field input invalid-highlight js-max-length" placeholder="170" value="" maxLength="3" data-decimals="false" required="" pattern="[0-9]*" tabindex="0" inputmode="tel">
+                        <label class="label invalid-highlight" for="step4[height_cm]">cm</label>
+                    </div>
+                    <div class="hidden " id="calculator-step-height-ft-input-wrapper">
+                        <div class="metric-label-input-wrapper d-inline-block">
+                            <input type="tel" id="calculator-step-height-feet" name="height[ft]" class="js-input-field input dual-number invalid-highlight js-max-length" data-factor="3.2808" value="" maxLength="1" data-decimals="false" required="" placeholder="5" pattern="[1-9]*"
+                                tabindex="0" inputmode="tel">
+                            <label for="height[ft]" class="invalid-highlight">ft</label>
+                        </div>
+                        <div class="metric-label-input-wrapper d-inline-block">
+                            <input type="tel" id="calculator-step-height-inch" name="height[in]" class="margin-left-32 js-input-field input dual-number invalid-highlight js-max-length" data-factor="39.37" value="" maxLength="2" data-decimals="false" required="" placeholder="7" pattern="[0-9]*"
+                                tabindex="0" inputmode="tel">
+                            <label for="height[in]" class="invalid-highlight">in</label>
+                        </div>
+                    </div>
+          <input type="number" name="weight" placeholder="weight" required="required" /><br>
+          <input type="number" name="duration" placeholder="duration" required="required" /><br>
+          <input type="number" name="heartrate" placeholder="heartrate" required="required" /><br>
+          <input type="number" name="bodytemperature" placeholder="bodytemperature" required="required" /><br>
+          
+  
+         
+          <!-- <input type="submit" value="Predict"> -->
+          <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+      </form>
+   
+</div>
+{{prediction_text}}
+</body>
+</html>
+
+
+
+
+
+
+
+ <!-- <foheartrate action="{{ url_for('predict') }}" method="post">
+        <label for="gender">Gender:</label>
+        <!-- <select name="number" id="gender"> -->
+            <!-- <option value="male">Male</option> -->
+            <!-- <option value="female">Female</option> -->
+            <!-- <input type="number" name="gender" id="gender">
+        <br>
+        <label for="age">Age:</label>
+        <input type="number" name="age" id="age">
+        <br>
+        <label for="height">Height (in cm):</label>
+        <input type="number" name="height" id="height">
+        <br>
+        <label for="weight">Weight (in kg):</label>
+        <input type="number" name="weight" id="weight">
+        <br>
+        <label for="duration">Duration (in min):</label>
+        <input type="number" name="duration" id="duration">
+        <br>
+        <label for="heart_rate">Heart Rate:</label>
+        <input type="number" name="heart_rate" id="heart_rate">
+        <br>
+        <label for="body_temp">Body Temperature:</label>
+        <input type="number" name="body_temp" id="body_temp">
+        <br>
+        <input type="submit" value="Predict">
+    </foheartrate> --> -->
